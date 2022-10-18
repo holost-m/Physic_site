@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать задачу</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="{% static 'exercise_physic/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row align-items-center menu">
+            <div class="col-md-3"><h3>Задачи<br>по физике<h3></h3></div>
+            <div class="col-md-2"><a href="#">Решать</a></div>
+            <div class="col-md-2"><a href="#">Создать</a></div>
+            <div class="col-md-2"><a href="#">Редактировать</a></div>
+            <div class="col-md-2"><a href="#">Удалить</a></div>
+        </div>
+
+
+        <div class="row main justify-content-start">
+            <div class="col-md-3 left-path"> </div>
+            <div class="col create_task">
+                <h5>Создать задачу</h5>
+                <form method="POST" class="text-center" role="form">
+					{% csrf_token %}
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Выберете тему задачи</label>
+                         </div>
+                         <div class="col enter">
+                            <select size="5" multiple name="topic">
+                                {% for i in topics %}
+                                <option>{{ i.topic }}</option>
+                                 {% endfor %}
+                            </select>
+                         </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Введите название задачи</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                            <textarea rows="1" cols="72" name="task_name"></textarea>
+                         </div>
+
+                    </div>
+
+
+					 <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Введите текст задачи</label>
+                         </div>
+                         <div class="col enter">
+                            <textarea rows="6" cols="110" name="text"></textarea>
+                         </div>
+                     </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Прикрепите картинку</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                             <input type="file" id="file" name="file">
+                         </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Введите переменные и их перевод в систему СИ</label>
+                         </div>
+                         <div class="col col-md-3 enter">
+                             Дано
+                            <textarea rows="6" cols="34" name="variables"></textarea>
+                         </div>
+                         <div class="col col-md-3 enter">
+                             СИ
+                            <textarea rows="6" cols="34" name="si_system"></textarea>
+                         </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Найти</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                            <textarea rows="3" cols="72" name="to_find"></textarea>
+                         </div>
+
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Решение</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                            <textarea rows="7" cols="72" name="solving"></textarea>
+                         </div>
+
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Ответ</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                            <textarea rows="1" cols="72" name="answer"></textarea>
+                         </div>
+                    </div>
+
+
+
+					<input class="btn btn-success" type="submit" value="Сохранить">
+				</form>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
