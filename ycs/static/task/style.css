@@ -1,10 +1,41 @@
-.row {
-padding: 15px;
+a {
+color: white;
 }
 
-.big {
-background-color: #DCDCDC;
-border: 1px solid #CADADD;
-height: 200px;
+.menu {
+border: 2px solid white;
+background-color: #343434;
+text-align: center;
+color: white;
 }
+
+.main {
+color: #000000;
+text-align: center;
+}
+
+.left-path {
+background-color: #343434;
+color: white;
+}
+
+.create_task {
+background-color: #F5F5F5;
+border: 2px solid white;
+padding: 30px;
+text-align: center;
+}
+
+.btn {
+margin: 20px;
+}
+
+.enter{
+text-align: left;
+}
+
+textarea {
+display: inline-block;
+}
+
 

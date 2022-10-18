@@ -16,7 +16,7 @@ def create(request):
         print(vars)
         # new_task.variables_and_si =
         new_task.save()
-        return render(request, 'exercise_physic/base.html', {"topics": topics})
+        return render(request, 'task/base.html', {"topics": topics})
     else:
 
-        return render(request, 'exercise_physic/base.html', {"topics": topics})
+        return render(request, 'task/base.html', {"topics": topics})
