@@ -20,4 +20,13 @@ def create(request):
         new_task.answer = request.POST.get("answer")
         print(new_task.__dict__)
         new_task.save()
-    return render(request, 'task/base.html', {"topics": topics})
+    return render(request, 'task/create.html', {"topics": topics})
+
+def delete(request):
+    return render(request, 'task/delete.html')
+
+def change(request):
+    return render(request, 'task/change.html')
+
+def solve(request):
+    return render(request, 'task/solve.html')

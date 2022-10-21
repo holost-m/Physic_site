@@ -13,126 +13,17 @@
         <div class="row align-items-center justify-content-start menu">
             <div class="col-md-3 name_site"><h3>YOU CAN<br>SOLVE</h3></div>
             <div class="col row justify-content-start">
-                <div class="col-md-2"><a href="#">Решать</a></div>
-                <div class="col-md-2"><a href="#">Создать</a></div>
-                <div class="col-md-2"><a href="#">Редактировать</a></div>
-                <div class="col-md-2"><a href="#">Удалить</a></div>
-                <!--<div class="row align-items-center justify-content-start">
-                    <div class="col"><a href="#">Решать</a></div>
-                    <div class="col"><a href="#">Создать</a></div>
-                    <div class="col"><a href="#">Редактировать</a></div>
-                    <div class="col"><a href="#">Удалить</a>
-                </div>-->
+                <div class="col-md-2"><a href="/task/solve">Решать</a></div>
+                <div class="col-md-2"><a href="/task/create">Создать</a></div>
+                <div class="col-md-2"><a href="/task/change">Редактировать</a></div>
+                <div class="col-md-2"><a href="/task/delete">Удалить</a></div>
             </div>
-            <!--<div class="col-md-2"><a href="#">Решать</a></div>
-            <div class="col-md-2"><a href="#">Создать</a></div>
-            <div class="col-md-2"><a href="#">Редактировать</a></div>
-            <div class="col-md-2"><a href="#">Удалить</a></div>-->
         </div>
 
 
         <div class="row main justify-content-start">
-            <div class="col-md-3 left-path"> </div>
-            <div class="col create_task">
-                <h5>Создать задачу</h5>
-                <form method="POST" class="text-center" role="form">
-					{% csrf_token %}
-
-                    <div class="row align-items-center">
-                         <div class="col-md-2">
-						    <label>Выберете тему задачи</label>
-                         </div>
-                         <div class="col enter">
-                            <select size="5" multiple name="topic">
-                                {% for i in topics %}
-                                <option>{{ i.topic }}</option>
-                                 {% endfor %}
-                            </select>
-                         </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                         <div class="col-md-2">
-						    <label>Введите название задачи</label>
-                         </div>
-                         <div class="col col-md-2 enter">
-                            <textarea rows="1" cols="72" name="name"></textarea>
-                         </div>
-
-                    </div>
-
-
-					 <div class="row align-items-center">
-                         <div class="col-md-2">
-						    <label>Введите текст задачи</label>
-                         </div>
-                         <div class="col enter">
-                            <textarea rows="6" cols="110" name="text"></textarea>
-                         </div>
-                     </div>
-
-                    <div class="row align-items-center">
-                         <div class="col-md-2">
-						    <label>Прикрепите картинку</label>
-                         </div>
-                         <div class="col col-md-2 enter">
-                             <input type="file" id="file" name="file">
-                         </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                         <div class="col-md-2">
-						    <label>Введите переменные и их перевод в систему СИ</label>
-                         </div>
-                         <div class="col col-md-3 enter">
-                             Дано
-                            <textarea rows="6" cols="34" name="variables"></textarea>
-                         </div>
-                         <div class="col col-md-3 enter">
-                             СИ
-                            <textarea rows="6" cols="34" name="si_system"></textarea>
-                         </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                         <div class="col-md-2">
-						    <label>Найти</label>
-                         </div>
-                         <div class="col col-md-2 enter">
-                            <textarea rows="3" cols="72" name="to_find"></textarea>
-                         </div>
-
-                    </div>
-
-                    <div class="row align-items-center">
-                         <div class="col-md-2">
-						    <label>Решение</label>
-                         </div>
-                         <div class="col col-md-2 enter">
-                            <textarea rows="7" cols="72" name="solving"></textarea>
-                         </div>
-
-                    </div>
-
-                    <div class="row align-items-center">
-                         <div class="col-md-2">
-						    <label>Ответ</label>
-                         </div>
-                         <div class="col col-md-2 enter">
-                            <textarea rows="1" cols="72" name="answer"></textarea>
-                         </div>
-                    </div>
-
-
-
-					<input class="btn btn-success" type="submit" value="Сохранить">
-				</form>
-
-
-
-
-
-            </div>
+            <div class="col-md-3 left-path"> {% block leftPath %} {% endblock leftPath %} </div>
+            <div class="col right-path"> {% block rightPath %} {% endblock rightPath %}</div>
 
         </div>
     </div>

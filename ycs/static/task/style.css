@@ -19,7 +19,7 @@ background-color: #343434;
 color: white;
 }
 
-.create_task {
+.right-path {
 background-color: #F5F5F5;
 border: 2px solid white;
 padding: 30px;
@@ -36,6 +36,10 @@ text-align: left;
 
 textarea {
 display: inline-block;
+}
+
+h5 {
+padding: 10px;
 }
 
 

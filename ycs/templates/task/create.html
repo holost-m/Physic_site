@@ -1,0 +1,111 @@
+{% extends "task/base.html" %}
+
+    {% block leftPath %}
+    {% endblock leftPath %}
+
+{% block rightPath %}
+<h5>Создать задачу</h5>
+                <form method="POST" class="text-center" role="form">
+					{% csrf_token %}
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Выберете тему задачи</label>
+                         </div>
+                         <div class="col enter">
+                            <select size="5" multiple name="topic">
+                                {% for i in topics %}
+                                <option>{{ i.topic }}</option>
+                                 {% endfor %}
+                            </select>
+                         </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Введите название задачи</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                            <textarea rows="1" cols="72" name="name"></textarea>
+                         </div>
+
+                    </div>
+
+
+					 <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Введите текст задачи</label>
+                         </div>
+                         <div class="col enter">
+                            <textarea rows="6" cols="100" name="text"></textarea>
+                         </div>
+                     </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Прикрепите картинку</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                             <input type="file" id="file" name="file">
+                         </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Введите переменные и их перевод в систему СИ</label>
+                         </div>
+                         <div class="col col-auto enter">
+                             Дано <br>
+                            <textarea rows="6" cols="34" name="variables"></textarea>
+                         </div>
+                         <div class="col col-auto enter">
+                             СИ <br>
+                            <textarea rows="6" cols="34" name="si_system"></textarea>
+                         </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Найти</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                            <textarea rows="3" cols="72" name="to_find"></textarea>
+                         </div>
+
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Решение</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                            <textarea rows="7" cols="72" name="solving"></textarea>
+                         </div>
+
+                    </div>
+
+                    <div class="row align-items-center">
+                         <div class="col-md-2">
+						    <label>Ответ</label>
+                         </div>
+                         <div class="col col-md-2 enter">
+                            <textarea rows="1" cols="72" name="answer"></textarea>
+                         </div>
+                    </div>
+
+
+
+					<input class="btn btn-success" type="submit" value="Сохранить">
+				</form>
+
+{% endblock rightPath %}
+
+
+
+
+
+
+
+
+
+
