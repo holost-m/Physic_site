@@ -23,10 +23,21 @@ def create(request):
     return render(request, 'task/create.html', {"topics": topics})
 
 def delete(request):
-    return render(request, 'task/delete.html')
+    if request.method == "POST": # Удаляем запись по запросу
+        delete_task = Task.objects.get(id=request.POST.get("task_id_delete"))
+        delete_task.delete()
+    task_list = list(Task.objects.all().values('topic', 'name', 'text', 'id').order_by('topic'))
+    for dct in task_list:
+        dct['topic_name'] = Topic.objects.get(id=dct['topic'])
+
+    return render(request, 'task/delete.html', {"task_list": task_list})
 
 def change(request):
+    task_list = list(Task.objects.all().values('topic', 'name', 'id').order_by('topic'))
+    for dct in task_list:
+        dct['topic_name'] = Topic.objects.get(id=dct['topic'])
     return render(request, 'task/change.html')
 
 def solve(request):
+
     return render(request, 'task/solve.html')

@@ -23,7 +23,7 @@ class Task(models.Model):
     answer = models.CharField(max_length=255, verbose_name="Ответ")
 
     def __str__(self):
-         return f'Задача № {self.id} {self.name}'
+         return f'Тема "{self.topic}" {self.name}'
 
     class Meta:
         verbose_name_plural = 'Задачи по физике'

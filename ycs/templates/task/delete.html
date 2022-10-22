@@ -4,5 +4,20 @@
 {% endblock leftPath %}
 
 {% block rightPath %}
-delete
+    <h4>Выберете задачи</h4>
+    <form method="POST" role="form">
+        {% csrf_token %}
+        {% for task in task_list %}
+            <div class="row align-items-start tasks_text">
+                <div class="col-auto">
+                    <input type="checkbox" id="task_id_delete" name="task_id_delete" value="{{ task.id }}">
+
+                </div>
+                <div class="col-md-2"><h6>{{ task.name }}</h6></div>
+                <div class="col-md-2"><h6>{{ task.topic_name }}</h6></div>
+                <div class="col"><p>{{ task.text }}</p></div>
+            </div>
+        {% endfor %}
+        <input class="btn btn-danger" type="submit" value="Удалить">
+    </form>
 {% endblock rightPath %}
