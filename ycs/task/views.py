@@ -36,7 +36,7 @@ def change(request):
     task_list = list(Task.objects.all().values('topic', 'name', 'id').order_by('topic'))
     for dct in task_list:
         dct['topic_name'] = Topic.objects.get(id=dct['topic'])
-    return render(request, 'task/change.html')
+    return render(request, 'task/change.html', {"task_list": task_list})
 
 def solve(request):
 
